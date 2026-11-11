@@ -1,8 +1,8 @@
 # Editing SolidWorks with an AI agent
 
-This kit lets an AI coding agent (Claude Code, Codex, or similar) edit a SolidWorks model safely. The agent drives the SolidWorks you already have open through its API, with no clicking and no screen control. It works from a set of tested commands: they check the model after every change, undo changes that break it, and only save files that actually changed.
+This kit lets an AI coding agent edit a SolidWorks model safely. The agent drives the SolidWorks you already have open through its API, with no clicking and no screen control. It works from a set of tested commands: they check the model after every change, undo changes that break it, and only save files that actually changed.
 
-You describe the change ("make the base plate 20 mm wider", "check the arm clears the battery at every fold angle", "what does this weigh?"). The agent reads the model, makes the change through these commands, validates it, and shows you an image of the result.
+You describe the change. The agent reads the model, makes the change through these commands, validates it, and shows you an image of the result.
 
 ## How it works
 
@@ -59,9 +59,3 @@ Details on discovery, overrides and other computers: [docs/SETUP.md](docs/SETUP.
 - **Keep notes on the parts.** Assumptions like "proxy geometry", "mass from supplier datasheet" or "not modeled: threads" go in the part's custom properties, where `inspect` and `register` show them. Don't put them in a document that drifts.
 - **Look at the picture.** After each geometry change the agent shows an image (`cad.ps1 views`). Glance at it, since a passing validation can't tell you the design is what you meant.
 - **Coordinate on files.** Git can't merge two people's edits to the same SolidWorks file. Agree who edits which parts, and close or save SolidWorks documents before pulling or switching branches.
-
-## Limits
-
-- Windows only, SolidWorks with its API files installed; Windows PowerShell 5.1 (not PowerShell 7). Built and used with SolidWorks 2026; check other versions with `cad.ps1 compile` and a `validate` run.
-- Validation finds rebuild errors, broken mates, bad sketches, overlaps and whatever your project checks test. It doesn't qualify strength, tolerances or manufacturability.
-- `sweep` checks discrete poses, not a continuous swept volume.
