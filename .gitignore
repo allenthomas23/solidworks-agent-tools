@@ -1,0 +1,38 @@
+# SolidWorks lock, recovery, journal and backup files.
+~$*
+*.swbak
+*.swar
+*.swj
+*.sldprt~
+*.SLDPRT~
+*.sldasm~
+*.SLDASM~
+*.slddrw~
+*.SLDDRW~
+*.bak
+*.tmp
+**/AutoRecover/
+**/Auto-Recover/
+
+# Native bitmap exports (the tools convert to PNG).
+*.bmp
+
+# Regenerable SolidWorks Simulation solver outputs; keep models, reports and plots.
+*.[cC][wW][rR]
+*.[lL][cC][dD]
+*.[bB][dD]2
+*.[bB][dD][fF]
+*.[bB][aA][fF]
+*.[bB][aA][jJ]
+
+**/__pycache__/
+*.py[cod]
+.DS_Store
+Thumbs.db
+desktop.ini
+.env
+.env.*
+.venv/
+
+# Throwaway agent/user scripts; promote reusable ones to tools/ or project/.
+scratch/
